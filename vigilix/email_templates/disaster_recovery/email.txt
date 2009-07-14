@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body>
+There are 2 types of hard drives: those which have failed, and those that have not failed - yet.
+
+Did you know that 76% of all data loss is due to user error or hardware failure?
+
+Business data goes hand in hand with business operations.  The impact
+of lost data is an inability to operate and a loss of your company's
+reputation.  Important data related to gift cards or frequent
+customers may never be recovered.  Without the proper process and
+systems in place, rebuilding lost data is expensive and time
+consuming.
+
+Data is the most difficult item to replace - There is no substitute,
+you either have it or you don't. 
+
+Tape drives are inefficient and unreliable and have 30% failure rate;
+any type of on-site storage does not protect you from fire, theft,
+viruses, power surges, internal hardware failure or user error. 
+
+Virtual Technician provides you with a disaster recovery solution that
+you can depend on and trust: 
+
+* Virtual Technician automatically encrypts, compresses and transfers
+  files to an offsite location for storage and on-demand retrieval.
+
+* Alert notification if there is an issue with a back-up process.
+
+* Data is stored offsite in mirrored SAS 70 - Type II data centers.
+
+Stop wondering if your data is safe and start knowing.
+
+Contact us today to learn more about our off-site disaster recovery
+solution for your business.
+
+About <span id="dealer_name" class="di_template_field" rel="text|Dealer Name">[DEALER NAME]</span>
+
+<span class="style9 di_template_field" id="about_dealer" rel="textarea|About the Dealer">[dealer can write copy here]</span>
+
+<a class="di_template_field" id="dealer_website" rel="link|Link to dealer website" href="www.dealer.com">www.dealer.com</a> | <a class="di_template_field" id="second_contact_email" rel="mailto|Contact name and email" href="mailto:info@dealer.com">email us</a> | <span class="di_template_field" id="phone_number" rel="text|Dealer's phone number">phone #</span>
+
+<span class="di_template_field" id="address" rel="text|Dealer address">Address City State. ZIP</span>
+
+</body>
+</html>

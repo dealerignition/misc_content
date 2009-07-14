@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body>
+
+Don't travel naked!
+
+Outfit your wheels this summer with a Yakima Rack and earn some cash
+too. Buy a base rack (towers and bars) by June 30, 2009 and use the
+rebate form below to receive $30 back from Yakima.
+
+Use your rebate for gas money, beer, energy bars, climbing ropes or
+camping fees. 
+
+Eligible roof towers:
+* RailGrab
+* Lowrider
+* Lowrider Max
+* EZ Rider
+* 1A Raingutter
+* Q-Tower
+* Control Tower
+
+See http://www.yakima.com/promotion.aspx for details.
+
+<div id="dealer_website" class="di_template_field" rel="link|Link to dealer's website"/>
+
+<div id="dealer_email" class="di_template_field" rel="mailto|Link to email ealer"/>
+
+<div id="dealer_phone" class="di_template_field" rel="text|Dealer's phone number">555-555-5555</div>
+<div id="dealer_address" class="di_template_field" rel="text|Dealer's address">123 Lucky St</div>
+<div id="dealer_city_and_state" class="di_template_field" rel="text|Dealer's city, state, and zip">Anytown, WA 98765</div>
+</body>
+</html>
