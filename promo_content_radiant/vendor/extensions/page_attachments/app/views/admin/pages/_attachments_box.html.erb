@@ -1,0 +1,24 @@
+<div id="attachments">
+  <div class="toolbar">
+    <%= image_tag('admin/plus.png', :alt => 'Add') %>
+  </div>
+  <h3>Attachments (<span id="attachment_count"><%= @page.attachments.count %></span>)</h3>
+    <div id="attachment_help">
+      You can include attachments in <strong>this</strong> page using the following attachment tags:
+      <ul>
+        <li><code>&lt;r:attachment:image name="<em>file name</em>"/&gt;</code> - embeds the image in the page</li>
+        <li><code>&lt;r:attachment:link name="<em>file name</em>"&gt;click here!&lt;/r:attachment:link&gt;</code> - links to the attachment</li>
+        <li><code>&lt;r:attachment:url name="<em>file name</em>"/&gt;</code> - embeds the url to the attachment</li>
+      </ul>
+You can also right-click and copy the link to the filename below to use the file directly, or to use it on another page.
+    </div>  
+  <%= javascript_tag "var auth_token = '#{form_authenticity_token}';" %>
+  <% unless @page.attachments.count.zero? %>
+
+    <ol id="attachment_list">
+      <%= render :partial => 'attachment', :collection => @page.attachments %>
+    </ol>
+    <div style="clear:both;"></div>
+  <% end %>
+  <p id="reorder_notice" style="display:none;">Page attachments order will appear on site only when cache is cleared (on save or after 5min).</p>
+</div>

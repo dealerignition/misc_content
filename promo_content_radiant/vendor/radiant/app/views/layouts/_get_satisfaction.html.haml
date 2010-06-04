@@ -1,0 +1,8 @@
+%style{ :type => "text/css" }
+  @import url('http://s3.amazonaws.com/getsatisfaction.com/feedback/feedback.css');
+%script{ :src => "http://s3.amazonaws.com/getsatisfaction.com/feedback/feedback.js", :type => "text/javascript" }
+:javascript
+  var tab_options = {}
+  tab_options.placement = "left";  // left, right, bottom, hidden
+  tab_options.color = "#aaa"; // hex (#FF0000) or color (red)
+  GSFN.feedback('http://getsatisfaction.com/dealerignition/feedback/topics/new?display=overlay&style=problem', tab_options);

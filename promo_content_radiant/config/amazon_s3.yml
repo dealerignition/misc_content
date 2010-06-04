@@ -1,0 +1,17 @@
+development:
+  bucket_name: cdn-dev-dealerignition-com
+  access_key_id: 00WBDRTXYTWV1346XJ02
+  secret_access_key: MyL2VMuDlQXrOQjpx1bNX2uvMkKOUFJ8QRu3psgL
+  distribution_domain: content-dev.coopsem.com
+
+test:
+  bucket_name: di-promo-content-test
+  access_key_id: 00WBDRTXYTWV1346XJ02
+  secret_access_key: MyL2VMuDlQXrOQjpx1bNX2uvMkKOUFJ8QRu3psgL
+
+production:
+  bucket_name: cdn-dealerignition-com
+  #bucket_name: di-promo-content
+  access_key_id: 00WBDRTXYTWV1346XJ02
+  secret_access_key: MyL2VMuDlQXrOQjpx1bNX2uvMkKOUFJ8QRu3psgL
+  distribution_domain: content.coopsem.com

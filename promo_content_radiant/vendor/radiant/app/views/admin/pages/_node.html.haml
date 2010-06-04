@@ -1,0 +1,39 @@
+%tr.node{:id => "page-#{page.id}", :class =>"level-#{level}#{children_class}#{virtual_class} #{page.page_type}"}
+  - render_region :node, :locals => {:page => page, :level => level, :simple => simple} do |node|
+    - node.title_column do
+      %td.page{:style => "padding-left: #{padding_left(level)}px"}
+        %span.w1{:class => page.page_type}
+          - if simple
+            = icon
+            = node_title
+          - else
+            %span.page_edit_link
+              = expander + link_to("#{icon} #{node_title}", edit_admin_page_url(page), :title => page.url)
+            %span.page_name
+              = expander + "#{icon} #{node_title}"
+            = page_type
+            = spinner
+            %td.page_type{:class => page.page_type}
+              %span
+                = page.page_type.to_s.humanize
+    - node.status_column do
+      - unless simple
+        %td.status{:class => "#{page.status.name.downcase}-status"}
+          %span= page.status.name
+    - node.add_child_column do
+      - unless simple
+        /%td.add-child= link_to image('add-child', :alt => 'add child'), new_admin_page_child_url(page)
+        - if level == 0
+          %td.add-child
+            = link_to image('add-promo', :alt => 'add promo'), new_admin_page_child_url(page, :page_type => :promo)
+          %td.add-child
+            = link_to image('add-email', :alt => 'add email'), new_admin_page_child_url(page, :page_type => :email)
+    - node.remove_column do
+      - unless simple
+        %td.remove= link_to image('remove', :alt => 'remove page'), remove_admin_page_url(page)
+
+- if expanded
+  - page.children.each do |child|
+    = render_node child, :level => level + 1, :simple => simple
+
+  
