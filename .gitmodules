@@ -1,0 +1,3 @@
+[submodule "capsule-to-pipedrive/bi"]
+	path = capsule-to-pipedrive/bi
+	url = git://github.com/tyler/binary_search.git
