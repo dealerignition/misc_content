@@ -47,6 +47,7 @@ class DataMover
 
       unless resp.code.to_i.eql? 302
         puts "We have a problem."
+        puts resp.body
         gets
       end
     end
@@ -145,19 +146,17 @@ class DataMover
     connect_to_pipedrive
 
     # Open and parse csv data file
-    first = true
+    i = 0
+    start = gets.to_i
     CSV.foreach("contacts.csv") do |row|
-      if first
-        first = false
-        next
-      end
+      i += 1
+      next if i <= start
+      print i.to_s + ": "
 
-      i = 0
       unless row.last.eql? nil or (row[6].nil? or row[6].empty?)
         org_id = find_org_id row[6]
+        puts row[6]
         handle_updates org_id, row.last.split(/=== (\w+) ===/) unless org_id.nil?
-        i += 1
-        puts i
       end
     end
   end
