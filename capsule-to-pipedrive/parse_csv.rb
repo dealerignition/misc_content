@@ -1,6 +1,8 @@
 #!/usr/bin/ruby
 require 'csv'
 require './bi/lib/binary_search/pure'
+require 'net/http'
+require 'net/https'
 
 def stringCompare str1, str2
 	str1.downcase! 
@@ -30,8 +32,44 @@ class DataMover
     attr_reader :type, :content, :org_id
 
     def initialize(type, content, org)
-      @type, @content, @org_id = type, content, org_id
+      @type, @content, @org_id = type, content, org
     end
+
+    def push_to_pipedrive connection, headers
+      content = @type.capitalize + ":\n" + @content
+      data =  
+        '&comment[item_type]=org' +
+        '&comment[item_id]=' + org_id.to_s +
+        '&comment[content]=' + content
+      resp, data = connection.post('/comments/add', data, headers)
+      puts org_id
+      puts resp.code
+
+      unless resp.code.to_i.eql? 302
+        puts "We have a problem."
+        gets
+      end
+    end
+  end
+
+  def connect_to_pipedrive 
+    # Connect to Pipedrive
+    @con = Net::HTTP.new('app.pipedrive.com', 443)
+    @con.use_ssl = true
+
+    # Login to Pipedrive
+    path = '/auth/login'
+    resp, data = @con.get(path) # Set cookies
+    cookie = resp.response['set-cookie']
+
+    data = 'login=luke%2bauto@dealerignition.com&password=thisisacomputer'
+
+    @headers = {
+      'Cookie' => cookie,
+      'Content-Type' => 'application/x-www-form-urlencoded'
+    }
+
+    resp, data = @con.post(path, data, @headers)
   end
 
   def handle_updates org_id, updates
@@ -43,11 +81,8 @@ class DataMover
     end
 
     updates.each do |update|
-      handle_update update
+      update.push_to_pipedrive @con, @headers
     end
-  end
-
-  def handle_update update
   end
 
   def find_org_id name
@@ -94,6 +129,7 @@ class DataMover
     # open orgs file
     @ids = []
     @orgs = []
+
     first = true
     CSV.foreach("orgs.csv") do |row|
       if first
@@ -106,6 +142,8 @@ class DataMover
     end
     @orgs.sort
 
+    connect_to_pipedrive
+
     # Open and parse csv data file
     first = true
     CSV.foreach("contacts.csv") do |row|
@@ -114,9 +152,12 @@ class DataMover
         next
       end
 
+      i = 0
       unless row.last.eql? nil or (row[6].nil? or row[6].empty?)
         org_id = find_org_id row[6]
         handle_updates org_id, row.last.split(/=== (\w+) ===/) unless org_id.nil?
+        i += 1
+        puts i
       end
     end
   end
